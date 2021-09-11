@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTask2._1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+                <RadioButton Grid.Row="0" Content="Прямоугольник" Name="RectSelect" IsChecked="True" Margin="10 0 20 0"/>
+                <RadioButton Grid.Row="0" Content="Квадрат" Name="SquareSelect" Margin="0 0 20 0"/>
+                <RadioButton Grid.Row="0" Content="Окружность" Name="CircleSelect"/>
+            </StackPanel>
+            
+            <ContentControl Grid.Row="1" Name="ShapeEnter"/>
+        </Grid>
+
+        <TextBlock Grid.Column="1" Name="ShapeData" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

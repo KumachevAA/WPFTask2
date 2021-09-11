@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace WPFTask2._1
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RectEnter.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RectEnter : UserControl
     {
-        public MainWindow()
+        public RectEnter()
         {
             InitializeComponent();
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            ShapeEnter.Content = new RectEnter();
         }
     }
 }
