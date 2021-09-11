@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTask2._2"
+        xmlns:vm="clr-namespace:WPFTask2._2.ViewModels"
         mc:Ignorable="d"
         Title="Задача 2.2" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBar>
+            <Button Content="B" Width="40" Background="{Binding BoldButtonColor}" Command="{Binding BoldPressCommand}"/>
+            <Button Content="I" Width="40" Background="{Binding ItalicButtonColor}" Command="{Binding ItalicPressCommand}"/>
+            <Slider Minimum="4" Maximum="72" Width="250" VerticalAlignment="Center" Value="{Binding Editor.FontSize}"/>
+            <ComboBox Width="200" ItemsSource="{Binding FontFamilies}" SelectedItem="{Binding Editor.FontFamily}"/>
+        </ToolBar>
+        <RichTextBox Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                     FontFamily="{Binding Editor.FontFamily}"
+                     FontSize="{Binding Editor.FontSize}"
+                     FontStyle="{Binding FontStyle}"
+                     FontWeight="{Binding FontWeight}" />
     </Grid>
 </Window>
