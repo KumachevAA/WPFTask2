@@ -55,9 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CircleEnter.xaml.cs">
+      <DependentUpon>CircleEnter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Messaging\GlobalEventManager.cs" />
     <Compile Include="RectEnter.xaml.cs">
       <DependentUpon>RectEnter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SquareEnter.xaml.cs">
+      <DependentUpon>SquareEnter.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CircleEnter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RectEnter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SquareEnter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

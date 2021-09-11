@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPFTask2._1.RectEnter"
+﻿<UserControl x:Class="WPFTask2._1.CircleEnter"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,17 +9,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Длина" />
-            <TextBox Width="200" Height="25" Name="WidthBox" />
-        </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Длина" />
-            <TextBox Width="200" Height="25" Name="HeightBox" />
+            <Label Content="Радиус" />
+            <TextBox Width="200" Height="25" Name="RadiusBox" />
         </StackPanel>
 
         <Button Grid.Row="2" Width="250" Height="40" Content="Создать" Click="Button_Click"/>

@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WPFTask2._1.Messaging;
+using WPFTask2._1.Models;
 
 namespace WPFTask2._1
 {
@@ -23,11 +24,33 @@ namespace WPFTask2._1
         public MainWindow()
         {
             InitializeComponent();
+            GlobalEventManager manager = GlobalEventManager.GetInstance();
+            manager.ShapeCreated += ShapeCreated;
+        }
+
+        private void ShapeCreated(Shape shape)
+        {
+            ShapeData.Text = shape.ToString();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             ShapeEnter.Content = new RectEnter();
+        }
+
+        private void RectSelect_Click(object sender, RoutedEventArgs e)
+        {
+            ShapeEnter.Content = new RectEnter();
+        }
+
+        private void SquareSelect_Click(object sender, RoutedEventArgs e)
+        {
+            ShapeEnter.Content = new SquareEnter();
+        }
+
+        private void CircleSelect_Click(object sender, RoutedEventArgs e)
+        {
+            ShapeEnter.Content = new CircleEnter();
         }
     }
 }

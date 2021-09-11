@@ -5,22 +5,22 @@ using WPFTask2._1.Messaging;
 namespace WPFTask2._1
 {
     /// <summary>
-    /// Логика взаимодействия для RectEnter.xaml
+    /// Логика взаимодействия для CircleEnter.xaml
     /// </summary>
-    public partial class RectEnter : UserControl
+    public partial class CircleEnter : UserControl
     {
         private GlobalEventManager eventManager = GlobalEventManager.GetInstance();
 
-        public RectEnter()
+        public CircleEnter()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (double.TryParse(WidthBox.Text, out double width) && double.TryParse(HeightBox.Text, out double height))
+            if (double.TryParse(RadiusBox.Text, out double radius))
             {
-                eventManager.OnShapeCreated(new Models.Rect(width, height));
+                eventManager.OnShapeCreated(new Models.Circle(radius));
             }
         }
     }
