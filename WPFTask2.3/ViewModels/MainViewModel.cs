@@ -1,26 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Data;
+using System.Windows.Input;
+using WPFTask2._1.Commands;
+using WPFTask2._1.Models;
+using WPFTask2._1.Util;
 
 namespace WPFTask2._1.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ObservableCollection<Card> Cards { get; } = new ObservableCollection<Card>();
+        private Deck deck;
 
-        private double itemWidth  = 0;
-        public double ItemWidth
+        private void GenDeck()
         {
-            get => itemWidth;
+            deck = new Deck();
+            Cards.Clear();
 
-            set
+            for (int i = 0; i < 52; i++)
             {
-                itemWidth = value / 13;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ItemWidth)));
+                Cards.Add(deck.GetCard(i));
             }
         }
+
+        private void Shuffle()
+        {
+            if (deck != null)
+            {
+                deck.Shuffle();
+                Cards.Clear();
+
+                for (int i = 0; i < 52; i++)
+                {
+                    Cards.Add(deck.GetCard(i));
+                }
+            }
+        }
+
+        public ICommand GetDeck => new RelayCommand(GenDeck);
+        public ICommand ShuffleDeck => new RelayCommand(Shuffle);
     }
 }

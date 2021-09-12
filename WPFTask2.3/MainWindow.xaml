@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTask2._1"
         xmlns:vm="clr-namespace:WPFTask2._1.ViewModels"
+        xmlns:models="clr-namespace:WPFTask2._1.Models"
         mc:Ignorable="d"
         Title="Задание 2.3" Height="450" Width="800">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
-    <Grid Name="MainGrid" Width="{Binding ItemWidth, Mode=OneWayToSource}">
+    <Grid Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
@@ -22,12 +23,21 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Content="Колода" Grid.Column="0"/>
-            <Button Content="Перемешать" Grid.Column="1"/>
+            <Button Content="Колода" Grid.Column="0" Command="{Binding GetDeck}"/>
+            <Button Content="Перемешать" Grid.Column="1" Command="{Binding ShuffleDeck}"/>
         </Grid>
 
-        <WrapPanel Grid.Row="1" Orientation="Horizontal" ItemWidth="{Binding ItemWidth, Mode=OneWay}">
-
-        </WrapPanel>
+        <ScrollViewer Grid.Row="1">
+            <ListView ItemsSource="{Binding Cards}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Grid.Column="0" Source="{Binding Image}"/>
+                            <TextBlock Grid.Column="1" Text="{Binding StringName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Window>
