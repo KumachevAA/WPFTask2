@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WPFTask2._3
+namespace WPFTask2._1
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
